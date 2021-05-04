@@ -21,7 +21,6 @@ func _process(delta):
 	var friction = false
 	#Movemement
 	if State_play == false :
-		print(facing_right)
 		if Input.is_action_pressed("move_right"):
 			motion1.x = min(motion1.x+ACCEL, MAX_SPEED)
 			if facing_right == false :
@@ -50,8 +49,8 @@ func _process(delta):
 	
 	
 	if is_on_floor():
-#		if Input.is_action_just_pressed("jump"):
-#			motion1.y = -500
+		if Input.is_action_just_pressed("jump"):
+			motion1.y = -500
 		if friction == true :
 			motion1.x = lerp(motion1.x, 0, 0.2) 
 		on_air = false
