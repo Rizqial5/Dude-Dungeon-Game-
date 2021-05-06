@@ -18,9 +18,9 @@ func _ready():
 func _process(delta):
 	if $AnimationPlayer.current_animation == "Attack":
 		return
+	if keep_attack == true :
+		$AnimationPlayer.play("Attack") 
 	
-	
-	print(delta)
 	move_enemy()
 	turn_around()
 	
@@ -50,13 +50,16 @@ func start_walk():
 
 
 func _on_PlayerDetector_body_entered(body):
-	$AnimationPlayer.play("Attack")
+	keep_attack = true
 	
 
 
-func _on_AttackHIT_body_entered(body):
-	pass #Diisi jika serangan enemy berhasil mengenai player
+
 
 
 func _on_PlayerDetector_body_exited(body):
 	keep_attack = false
+
+
+func _on_AttackHIT_body_entered(body):
+	pass # Replace with function body.

@@ -10,7 +10,6 @@ extents = Vector2( 47.8438, 9.14278 )
 
 [sub_resource type="Animation" id=3]
 length = 1.3
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture:load_path")
 tracks/0/interp = 1
