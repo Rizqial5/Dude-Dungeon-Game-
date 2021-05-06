@@ -9,10 +9,8 @@ func _ready():
 	self.current_health = 5
 
 
-func _process(delta):
-	if attacked == true :
-		self.current_health -=1
-		attacked = false
+#func _process(delta):
+	
 
 func update_bars(value):
 	current_health = value
@@ -22,6 +20,5 @@ func update_bars(value):
 
 
 func _on_AttackHIT_body_entered(body):
-	attacked = true 
-	
+	self.current_health -= 1
 
