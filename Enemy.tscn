@@ -90,7 +90,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0.6, 1, 1.2 ),
+"times": PoolRealArray( 0.6, 0.9, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -222,8 +222,8 @@ scale = Vector2( 2.83, 2.887 )
 texture = ExtResource( 1 )
 centered = false
 flip_h = true
-vframes = 6
-frame = 1
+vframes = 13
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -251,8 +251,8 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHIT"]
 modulate = Color( 0.0627451, 0.00784314, 0.00784314, 1 )
-position = Vector2( -113.935, -6.79719 )
-rotation = 1.122
+position = Vector2( -56, -36.5 )
+rotation = 2.72446
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]

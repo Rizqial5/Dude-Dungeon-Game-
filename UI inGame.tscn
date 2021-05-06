@@ -1,0 +1,181 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Asset/GUI/Asset_2_3x-removebg-preview 1.png" type="Texture" id=1]
+[ext_resource path="res://HeartBox.gd" type="Script" id=2]
+[ext_resource path="res://Asset/GUI/—Pngtree—pixel icon yin and yang_4123085 1.png" type="Texture" id=3]
+[ext_resource path="res://Asset/GUI/Profile PIcture.png" type="Texture" id=4]
+[ext_resource path="res://Asset/GUI/tan.png" type="Texture" id=5]
+[ext_resource path="res://Asset/GUI/pixel-parchment-removebg-preview 1.png" type="Texture" id=6]
+[ext_resource path="res://Asset/Font/DisposableDroidBB.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Asset/Font/PixelateFont.tres" type="DynamicFont" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 7 )
+
+[node name="UI inGame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.8877
+margin_top = 5.66321
+margin_right = 481.888
+margin_bottom = 125.663
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeartBox" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 97.0
+margin_top = 14.0
+margin_right = -512.0
+margin_bottom = -553.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Heart" type="TextureRect" parent="HeartBox"]
+margin_right = 35.0
+margin_bottom = 153.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Heart2" type="TextureRect" parent="HeartBox"]
+margin_left = 39.0
+margin_right = 74.0
+margin_bottom = 153.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Heart3" type="TextureRect" parent="HeartBox"]
+margin_left = 78.0
+margin_right = 113.0
+margin_bottom = 153.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="Heart4" type="TextureRect" parent="HeartBox"]
+margin_left = 117.0
+margin_right = 152.0
+margin_bottom = 153.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="Heart5" type="TextureRect" parent="HeartBox"]
+margin_left = 156.0
+margin_right = 191.0
+margin_bottom = 153.0
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="ManaBox" type="HBoxContainer" parent="."]
+margin_left = 92.1211
+margin_top = 44.9634
+margin_right = 235.121
+margin_bottom = 89.9634
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mana" type="TextureRect" parent="ManaBox"]
+margin_right = 45.0
+margin_bottom = 45.0
+texture = ExtResource( 3 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mana2" type="TextureRect" parent="ManaBox"]
+margin_left = 49.0
+margin_right = 94.0
+margin_bottom = 45.0
+texture = ExtResource( 3 )
+stretch_mode = 3
+
+[node name="Mana3" type="TextureRect" parent="ManaBox"]
+margin_left = 98.0
+margin_right = 143.0
+margin_bottom = 45.0
+texture = ExtResource( 3 )
+stretch_mode = 3
+
+[node name="Profile" type="TextureRect" parent="."]
+margin_left = 14.0
+margin_top = 2.0
+margin_right = 87.0
+margin_bottom = 78.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Operator" type="TextureRect" parent="."]
+margin_left = 673.0
+margin_top = 14.0
+margin_right = 748.0
+margin_bottom = 89.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Operator"]
+margin_left = 7.44299
+margin_top = 7.72162
+margin_right = 69.443
+margin_bottom = 42.7216
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Operator
+"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 774.0
+margin_top = 6.0
+margin_right = 1029.0
+margin_bottom = 95.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Condition" type="Label" parent="TextureRect"]
+margin_left = 82.5009
+margin_top = 10.6634
+margin_right = 166.501
+margin_bottom = 33.6634
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Condition"
+uppercase = true
+
+[node name="Label" type="Label" parent="TextureRect"]
+margin_left = 52.556
+margin_top = 35.7381
+margin_right = 197.556
+margin_bottom = 66.7381
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "(Isi Kondisi)"

@@ -9,9 +9,11 @@ var State_play = false
 var attack_num = 1
 var attack_anim = null
 var on_air = false
-var facing_right = true
+var changed_face = true
 
 
+
+onready var ui = $"UI inGame"
 
 
 # warning-ignore:unused_argument
@@ -23,14 +25,16 @@ func _process(delta):
 	if State_play == false :
 		if Input.is_action_pressed("move_right"):
 			motion1.x = min(motion1.x+ACCEL, MAX_SPEED)
-			if facing_right == false :
+			if changed_face == false :
 				scale.x = -1
-				facing_right = true
+				changed_face = true
+				ui.set_scale(Vector2(1,1))
 #			$AnimationPlayer.play("Run")
 		elif Input.is_action_pressed("move_left"):
-			if facing_right == true :
+			if changed_face == true :
 				scale.x = -1
-				facing_right = false
+				changed_face = false
+				ui.set_scale(Vector2(-1,1))
 			motion1.x = max(motion1.x-ACCEL, -MAX_SPEED)
 			
 #			$AnimationPlayer.play("Run")
@@ -46,8 +50,12 @@ func _process(delta):
 #				attack_num += 1
 #			if attack_num > 2 :
 #				attack_num = 1
-	
-	
+
+		print(ui.get_scale())
+	elif scale.x == 1 :
+		ui.set_scale(Vector2(1,1))
+		
+		
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump"):
 			motion1.y = -500
@@ -79,3 +87,5 @@ func State():
 #func _on_Timer_timeout():
 #	attack_num = 1
 #	pass # Replace with function body.
+
+
