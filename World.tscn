@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Asset/forest/tanah.png" type="Texture" id=2]
@@ -9,6 +9,104 @@
 [ext_resource path="res://Asset/TileSet/Magic-Cliffs-Environment/PNG/clouds.png" type="Texture" id=8]
 [ext_resource path="res://Asset/TileSet/Magic-Cliffs-Environment/PNG/sky.png" type="Texture" id=9]
 [ext_resource path="res://Asset/forest/stage.png" type="Texture" id=10]
+
+[sub_resource type="GDScript" id=16]
+script/source = "extends KinematicBody2D
+
+
+const SPEED = 50
+const UP = Vector2(0,-1) 
+enum{
+	IDLE
+	MOVE,
+	ATTACK
+	}
+
+var state = ATTACK
+var motion = Vector2()
+var grav = 10
+var is_moving_left = true
+var keep_attack = false
+
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get(\"parameters/playback\")
+
+func _ready():
+	animationTree.active = true
+
+	
+
+
+# warning-ignore:unused_argument
+func _process(delta):
+	if keep_attack == true :
+		state = ATTACK
+	
+	match state:
+		IDLE:
+			pass
+		MOVE:
+			Move_state()
+		ATTACK :
+			Attack_state()
+	
+
+
+
+
+func Move_state():
+	move_enemy()
+	turn_around()
+
+func Attack_state():
+	animationState.travel(\"Attack\")
+	motion.y = -120
+	
+	
+
+func move_enemy() :
+	animationState.travel(\"Run\")
+	if is_moving_left :
+		motion.x = -SPEED
+	else :
+		motion.x = SPEED
+	motion.y += grav
+	
+	motion = move_and_slide(motion,UP)
+
+func turn_around():
+	if not $RayCast2D.is_colliding() and is_on_floor():
+		is_moving_left = !is_moving_left
+		scale.x = -scale.x
+		
+func hit():
+	$AttackHIT.monitoring = true
+
+func end_hit():
+	$AttackHIT.monitoring = false
+
+func start_walk():
+	state = MOVE
+
+
+# warning-ignore:unused_argument
+func _on_PlayerDetector_body_entered(body):
+	keep_attack = true
+#	queue_free()
+
+
+# warning-ignore:unused_argument
+func _on_AttackHIT_body_entered(body):
+	pass # Replace with function body.
+
+
+
+
+
+# warning-ignore:unused_argument
+func _on_PlayerDetector_body_exited(body):
+	keep_attack = false
+"
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -379,14 +477,14 @@ points = PoolVector2Array( 0.312836, 0.0124359, 32, 14.7479, 32, 32, 0, 32 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1204.35, 390.045 )
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="YSort" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 1078.16, 395.676 )
+position = Vector2( 1012.06, 429.413 )
 
-[node name="Sprite" parent="Enemies/Enemy" index="0"]
-vframes = 13
-frame = 0
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 723.409, 449.013 )
+script = SubResource( 16 )
 
 [node name="Woods" type="TileMap" parent="."]
 z_index = -1
@@ -428,7 +526,4 @@ scale = Vector2( 9.43576, 2.52961 )
 z_index = -3
 texture = ExtResource( 9 )
 
-[connection signal="body_entered" from="Enemies/Enemy/AttackHIT" to="Player/UI inGame" method="_on_AttackHIT_body_entered"]
-
 [editable path="Player"]
-[editable path="Enemies/Enemy"]

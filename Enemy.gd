@@ -3,29 +3,56 @@ extends KinematicBody2D
 
 const SPEED = 50
 const UP = Vector2(0,-1) 
+enum{
+	IDLE
+	MOVE,
+	ATTACK
+	}
 
+var state = ATTACK
 var motion = Vector2()
 var grav = 10
 var is_moving_left = true
 var keep_attack = false
 
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
+
 func _ready():
-	$AnimationPlayer.play("Run")
+	animationTree.active = true
 
 	
 
 
+# warning-ignore:unused_argument
 func _process(delta):
-	if $AnimationPlayer.current_animation == "Attack":
-		return
 	if keep_attack == true :
-		$AnimationPlayer.play("Attack") 
+		state = ATTACK
 	
+	match state:
+		IDLE:
+			pass
+		MOVE:
+			Move_state()
+		ATTACK :
+			Attack_state()
+	
+
+
+
+
+func Move_state():
 	move_enemy()
 	turn_around()
+
+func Attack_state():
+	animationState.travel("Attack")
+	motion.y = -120
+	
 	
 
 func move_enemy() :
+	animationState.travel("Run")
 	if is_moving_left :
 		motion.x = -SPEED
 	else :
@@ -41,25 +68,28 @@ func turn_around():
 		
 func hit():
 	$AttackHIT.monitoring = true
-	
+
 func end_hit():
 	$AttackHIT.monitoring = false
-	
+
 func start_walk():
-	$AnimationPlayer.play("Run")
+	state = MOVE
 
 
+# warning-ignore:unused_argument
 func _on_PlayerDetector_body_entered(body):
 	keep_attack = true
-	
+#	queue_free()
 
 
-
-
-
-func _on_PlayerDetector_body_exited(body):
-	keep_attack = false
-
-
+# warning-ignore:unused_argument
 func _on_AttackHIT_body_entered(body):
 	pass # Replace with function body.
+
+
+
+
+
+# warning-ignore:unused_argument
+func _on_PlayerDetector_body_exited(body):
+	keep_attack = false
