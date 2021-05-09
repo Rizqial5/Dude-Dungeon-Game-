@@ -44,7 +44,7 @@ __meta__ = {
 
 [node name="Heart" type="TextureRect" parent="HeartBox"]
 margin_right = 35.0
-margin_bottom = 153.0
+margin_bottom = 152.0
 texture = ExtResource( 1 )
 stretch_mode = 3
 __meta__ = {
@@ -54,7 +54,7 @@ __meta__ = {
 [node name="Heart2" type="TextureRect" parent="HeartBox"]
 margin_left = 39.0
 margin_right = 74.0
-margin_bottom = 153.0
+margin_bottom = 152.0
 texture = ExtResource( 1 )
 stretch_mode = 3
 __meta__ = {
@@ -64,21 +64,21 @@ __meta__ = {
 [node name="Heart3" type="TextureRect" parent="HeartBox"]
 margin_left = 78.0
 margin_right = 113.0
-margin_bottom = 153.0
+margin_bottom = 152.0
 texture = ExtResource( 1 )
 stretch_mode = 3
 
 [node name="Heart4" type="TextureRect" parent="HeartBox"]
 margin_left = 117.0
 margin_right = 152.0
-margin_bottom = 153.0
+margin_bottom = 152.0
 texture = ExtResource( 1 )
 stretch_mode = 3
 
 [node name="Heart5" type="TextureRect" parent="HeartBox"]
 margin_left = 156.0
 margin_right = 191.0
-margin_bottom = 153.0
+margin_bottom = 152.0
 texture = ExtResource( 1 )
 stretch_mode = 3
 
@@ -182,3 +182,13 @@ text = "(Isi Kondisi)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="."]
+margin_left = 450.49
+margin_top = 19.4899
+margin_right = 532.49
+margin_bottom = 48.4899
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "SCORE :"
+align = 1

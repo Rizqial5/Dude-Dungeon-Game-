@@ -1,4 +1,4 @@
-extends AnimationPlayer
+xtends Area2D
 
 
 # Declare member variables here. Examples:
@@ -12,6 +12,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	set_blend_time("Run","Attack",2)
-	
+#func _process(delta):
+#	pass

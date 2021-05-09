@@ -19,6 +19,9 @@ func update_bars(value):
 	
 
 
+
+
+
+
 func _on_AttackHIT_body_entered(body):
 	self.current_health -= 1
-

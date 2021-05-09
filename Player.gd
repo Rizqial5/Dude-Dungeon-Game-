@@ -51,7 +51,7 @@ func _process(delta):
 #			if attack_num > 2 :
 #				attack_num = 1
 
-		print(ui.get_scale())
+		
 	elif scale.x == 1 :
 		ui.set_scale(Vector2(1,1))
 		
