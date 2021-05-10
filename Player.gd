@@ -3,12 +3,17 @@ extends KinematicBody2D
 export (int) var run_speed = 250
 export (int) var jump_speed = -450
 export (int) var gravity = 1300
+export (int) var dodgeSpeed = 2500
+export (int) var health_p = 5
+export (int) var mana_p = 3
+export (int) var chara_value = randi()%11
 
 var velocity = Vector2()
 
 var attacking = false
 var jumping = false
 var charging = false
+var dodging = false
 
 var attackState = 3
 
@@ -63,7 +68,6 @@ func attack():
 	if attack and attacking == false:
 		ani.stop()
 		attackReset.start()
-		print(attackState)
 		attacking = true
 		ani.offset.x = 3.403
 		
@@ -97,15 +101,30 @@ func attack():
 		ani.offset.x = 0
 		ani.offset.y = 0
 		
+#under construction===============
+func _dodge():
+	var dodge = Input.is_action_pressed("dodge")
+	var left = ani.scale.x < 0
+	var right = ani.scale.x > 0
+	
+	if dodge and dodging == false:
+		dodging = true
+		ani.play("dodge")
+		if left:
+			velocity.x -= dodgeSpeed 
+		if right:
+			velocity.x += dodgeSpeed 
+#======================================
 	
 func _physics_process(delta):
 	get_input()
 	attack()
+	#_dodge()
 	velocity.y += gravity * delta
 	if jumping and is_on_floor():
 		jumping = false
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-	if velocity.y >0:
+	if velocity.y >0 and attacking == false:
 		ani.play("fall")
 
 
@@ -124,6 +143,9 @@ func _on_AnimatedSprite_animation_finished():
 		attacking = false
 		attkCol_Right.disabled = true
 		attkCol_Left.disabled = true
+		
+	if ani.animation == "dodge":
+		dodging = false
 		
 
 func _on_attackReset_timeout():
