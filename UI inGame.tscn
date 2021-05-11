@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Asset/GUI/Asset_2_3x-removebg-preview 1.png" type="Texture" id=1]
 [ext_resource path="res://HeartBox.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Asset/GUI/pixel-parchment-removebg-preview 1.png" type="Texture" id=6]
 [ext_resource path="res://Asset/Font/DisposableDroidBB.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Asset/Font/PixelateFont.tres" type="DynamicFont" id=8]
+[ext_resource path="res://ManaBox.gd" type="Script" id=9]
+[ext_resource path="res://UI inGame.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 7 )
@@ -26,6 +28,7 @@ margin_bottom = 78.48
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -87,6 +90,7 @@ margin_left = 92.1211
 margin_top = 44.9634
 margin_right = 235.121
 margin_bottom = 89.9634
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -136,16 +140,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Operator"]
-margin_left = 7.44299
-margin_top = 7.72162
-margin_right = 69.443
-margin_bottom = 42.7216
+[node name="title" type="Label" parent="Operator"]
+margin_left = 7.0
+margin_top = 8.0
+margin_right = 69.0
+margin_bottom = 43.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Operator
 "
 uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Operator"]
+margin_left = -36.1684
+margin_top = 28.1871
+margin_right = 108.832
+margin_bottom = 59.1871
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "asd"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -172,13 +189,14 @@ text = "Condition"
 uppercase = true
 
 [node name="Label" type="Label" parent="TextureRect"]
-margin_left = 52.556
-margin_top = 35.7381
-margin_right = 197.556
-margin_bottom = 66.7381
+margin_left = 49.7244
+margin_top = 36.682
+margin_right = 194.724
+margin_bottom = 67.682
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "(Isi Kondisi)"
+text = "asd"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -18,7 +18,7 @@ var grav = 10
 var is_moving_left = true
 var keep_attack = false
 var is_damaged = false
-
+var enemy_value = randi()%11
 
 
 onready var animationTree = $AnimationTree
@@ -28,20 +28,15 @@ onready var anim = $AnimationPlayer
 onready var stats = $Stats
 onready var deathTimer = $Death
 
+
 func _ready():
 	animationTree.active = true
 
-	
-
-
 # warning-ignore:unused_argument
 func _process(delta):
+	$TextureRect/Label.text = str(enemy_value)
 	if keep_attack == true :
 		state = ATTACK
-		
-			
-			
-			
 			
 	
 	match state:
@@ -57,11 +52,6 @@ func _process(delta):
 		DEATH:
 			Death_state()
 	
-	
-	
-
-
-
 
 func Move_state():
 	move_enemy()
@@ -71,9 +61,6 @@ func Attack_state():
 	animationState.travel("Attack")
 	
 	
-	
-	
-
 func Damaged_state():
 	end_hit()
 	if is_moving_left:
@@ -86,13 +73,6 @@ func Damaged_state():
 
 func Death_state():
 	animationState.travel("Death")
-	
-	
-	
-	
-	
-	
-	
 	
 func move_enemy() :
 	animationState.travel("Run")
@@ -111,12 +91,10 @@ func turn_around():
 		
 func hit():
 	$AttackHIT.monitoring = true
-#
-	
 
 func end_hit():
 	$AttackHIT.monitoring = false
-
+	
 func start_walk():
 	state = MOVE
 
@@ -149,13 +127,7 @@ func _on_DamagedArea_area_entered(_area):
 	stats.health -= 1
 
 
-
-
 func _on_Stats_no_health():
 	state = DEATH
 	
-
-
-
-
 
