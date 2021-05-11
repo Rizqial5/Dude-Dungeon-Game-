@@ -29,6 +29,7 @@ onready var stats = $Stats
 onready var deathTimer = $Death
 
 
+
 func _ready():
 	animationTree.active = true
 
@@ -78,8 +79,10 @@ func move_enemy() :
 	animationState.travel("Run")
 	if is_moving_left :
 		motion.x = -SPEED
+		$TextureRect/Label.set_scale(Vector2(0.5,0.5))
 	else :
 		motion.x = SPEED
+		$TextureRect/Label.set_scale(Vector2(-0.5,0.5))
 	motion.y += grav
 	motion = move_and_slide(motion,UP)
 
