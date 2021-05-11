@@ -7,18 +7,26 @@ enum{
 	IDLE
 	MOVE,
 	ATTACK,
-	DAMAGED
+	DAMAGED,
+	DEATH
 	}
 
+const KNOCBACK = 100
 var state = MOVE
 var motion = Vector2()
 var grav = 10
 var is_moving_left = true
 var keep_attack = false
+var is_damaged = false
+
 
 
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+#onready var animationStateM = animationState.get()
+onready var anim = $AnimationPlayer
+onready var stats = $Stats
+onready var deathTimer = $Death
 
 func _ready():
 	animationTree.active = true
@@ -30,6 +38,11 @@ func _ready():
 func _process(delta):
 	if keep_attack == true :
 		state = ATTACK
+		
+			
+			
+			
+			
 	
 	match state:
 		IDLE:
@@ -41,6 +54,10 @@ func _process(delta):
 			
 		DAMAGED:
 			Damaged_state()
+		DEATH:
+			Death_state()
+	
+	
 	
 
 
@@ -55,14 +72,25 @@ func Attack_state():
 	
 	
 	
+	
 
 func Damaged_state():
-	keep_attack = false
+	end_hit()
 	if is_moving_left:
-		position.x += 2.5
+		motion.x = KNOCBACK
 	else :
-		position.x -= 2.5
+		motion.x = -KNOCBACK
+	
 	animationState.travel("Damaged")
+	motion = move_and_slide(motion,UP)
+
+func Death_state():
+	animationState.travel("Death")
+	
+	
+	
+	
+	
 	
 	
 	
@@ -73,7 +101,6 @@ func move_enemy() :
 	else :
 		motion.x = SPEED
 	motion.y += grav
-	
 	motion = move_and_slide(motion,UP)
 
 func turn_around():
@@ -84,7 +111,7 @@ func turn_around():
 		
 func hit():
 	$AttackHIT.monitoring = true
-#	_on_AnimationPlayer_animation_changed("Attack","Damaged")
+#
 	
 
 func end_hit():
@@ -93,38 +120,42 @@ func end_hit():
 func start_walk():
 	state = MOVE
 
+func die():
+	queue_free()
 
-# warning-ignore:unused_argument
-
-
-
-
-
-
-
-
-
-# warning-ignore:unused_argument
-func _on_PlayerDetector_body_exited(body):
+func _on_PlayerDetector_body_exited(_body):
 	keep_attack = false
-
-
-
 
 func _on_Batas_body_exited(body):
 	is_moving_left = !is_moving_left
 	scale.x = -scale.x
 
+	
 
-func _on_DamagedArea_body_entered(body):
-#	pass
-	state = DAMAGED
-	keep_attack = false
+#func _on_DamagedArea_body_entered(body):
+#	state = DAMAGED
+#	keep_attack = false
+#	stats.health -= 1
+		
+	
 func _on_PlayerDetector_body_entered(body):
 	keep_attack = true
 	
+	
+
+func _on_DamagedArea_area_entered(_area):
+	state = DAMAGED
+	keep_attack = false
+	stats.health -= 1
 
 
-#func _on_AnimationPlayer_animation_changed(old_name, new_name):
-#	$AttackHIT.monitoring =false
-#	print("true")
+
+
+func _on_Stats_no_health():
+	state = DEATH
+	
+
+
+
+
+
