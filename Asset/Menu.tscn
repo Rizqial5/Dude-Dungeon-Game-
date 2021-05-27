@@ -33,12 +33,14 @@ animations = [ {
 } ]
 
 [node name="Menu" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.00160524
+anchor_top = -0.00284301
+anchor_right = 1.00161
+anchor_bottom = 0.997157
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": true,
-"_edit_vertical_guides_": [ 536.364, 513.367 ]
+"_edit_vertical_guides_": [ 536.364, 513.367, 498.084 ]
 }
 
 [node name="Logo" type="TextureRect" parent="."]
@@ -46,10 +48,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -195.956
-margin_top = -347.437
-margin_right = 135.044
-margin_bottom = 46.5626
+margin_left = -147.0
+margin_top = -274.0
+margin_right = 122.0
+margin_bottom = 46.0
 texture = ExtResource( 4 )
 expand = true
 __meta__ = {
@@ -57,10 +59,10 @@ __meta__ = {
 }
 
 [node name="Play" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.419034
-anchor_top = 0.62419
-anchor_right = 0.580753
-anchor_bottom = 0.693634
+anchor_left = 0.440476
+anchor_top = 0.628012
+anchor_right = 0.580782
+anchor_bottom = 0.688253
 margin_left = -22.0
 margin_top = -4.0
 margin_right = -22.0
@@ -72,10 +74,10 @@ text = "PLAY"
 reference_path = "res://World.tscn"
 
 [node name="Story" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.419034
-anchor_top = 0.709865
-anchor_right = 0.580753
-anchor_bottom = 0.77931
+anchor_left = 0.440476
+anchor_top = 0.709337
+anchor_right = 0.580782
+anchor_bottom = 0.769578
 margin_left = -22.0
 margin_top = -4.0
 margin_right = -22.0
@@ -86,10 +88,10 @@ custom_fonts/font = ExtResource( 2 )
 text = "STORY"
 
 [node name="Exit" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.41772
-anchor_top = 0.868678
-anchor_right = 0.579439
-anchor_bottom = 0.938122
+anchor_left = 0.441327
+anchor_top = 0.865964
+anchor_right = 0.579082
+anchor_bottom = 0.924699
 margin_left = -22.0
 margin_top = -4.0
 margin_right = -22.0
@@ -109,29 +111,24 @@ scroll_offset = Vector2( 1, 1 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 2, 1 )
 motion_offset = Vector2( 1, 1 )
-motion_mirroring = Vector2( 1400, 0 )
+motion_mirroring = Vector2( 1174, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 727.318, 362.53 )
-scale = Vector2( 0.756249, 0.670994 )
+position = Vector2( 589.512, 330.437 )
+scale = Vector2( 0.612701, 0.615063 )
 texture = ExtResource( 3 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 639.803, 361.433 )
-current = true
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 28.885, 509.927 )
-scale = Vector2( 5.75952, 5.75952 )
+position = Vector2( 14.3807, 467.672 )
+scale = Vector2( 5.36822, 5.36822 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="Credits" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.400904
-anchor_top = 0.783369
-anchor_right = 0.562623
-anchor_bottom = 0.852813
+anchor_left = 0.420918
+anchor_top = 0.783133
+anchor_right = 0.562925
+anchor_bottom = 0.84488
 custom_fonts/font = ExtResource( 2 )
 text = "CREDITS"
 reference_path = "res://Asset/Credit.tscn"

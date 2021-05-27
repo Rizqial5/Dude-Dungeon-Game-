@@ -382,11 +382,16 @@ script = ExtResource( 3 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1204.35, 390.045 )
 
+[node name="Camera2D" parent="Player" index="1"]
+offset = Vector2( 0, 1.005 )
+offset_h = 0.05
+offset_v = 0.09
+
 [node name="UI inGame" parent="Player" index="2"]
-margin_left = -433.584
-margin_top = -233.259
-margin_right = 846.416
-margin_bottom = 486.741
+margin_left = -485.256
+margin_top = -274.24
+margin_right = 794.744
+margin_bottom = 445.76
 
 [node name="AnimatedSprite" parent="Player" index="4"]
 frame = 3
@@ -401,7 +406,7 @@ position = Vector2( 1012.06, 429.413 )
 collision_mask = 23
 
 [node name="AnimatedSprite" parent="Enemies/Enemy" index="0"]
-frame = 2
+frame = 6
 
 [node name="AnimationTree" parent="Enemies/Enemy" index="7"]
 parameters/playback = SubResource( 1 )
