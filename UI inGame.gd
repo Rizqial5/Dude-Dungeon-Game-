@@ -9,8 +9,8 @@ onready var mana = $ManaBox
 
 var attacked = false
 var score = 0
-var kondisi = randi()%2
-var operator = randi()%4
+export (int) var kondisi = 0
+export (int) var operator = 0
 
 func output_operator(c):
 	var result
@@ -30,9 +30,9 @@ func output_kondisi(a):
 	var result
 	
 	if a == 0:
-		result = 'n > '+ str(randi()%11)
+		result = 'n > '+ str(5)
 	elif a == 1:
-		result = 'n < '+ str(randi()%11)
+		result = 'n < '+ str(5)
 		
 	return result
 

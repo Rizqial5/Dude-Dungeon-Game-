@@ -18,8 +18,8 @@ var grav = 10
 var is_moving_left = true
 var keep_attack = false
 var is_damaged = false
-var enemy_value = randi()%11
-
+export (int) var enemy_value = 0
+export (int) var charVal = 0
 
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
@@ -27,14 +27,18 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var anim = $AnimationPlayer
 onready var stats = $Stats
 onready var deathTimer = $Death
+onready var imunn = $imun/CollisionShape2D
 
-
+func imun():
+	if enemy_value+charVal < 5:
+		imunn.disabled = false
 
 func _ready():
 	animationTree.active = true
 
 # warning-ignore:unused_argument
 func _process(delta):
+	imun()
 	$TextureRect/Label.text = str(enemy_value)
 	if keep_attack == true :
 		state = ATTACK
@@ -134,3 +138,5 @@ func _on_Stats_no_health():
 	state = DEATH
 	
 
+func _on_attackCollusion_area_entered(area):
+	pass # Replace with function body.

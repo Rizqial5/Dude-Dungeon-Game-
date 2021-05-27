@@ -12,7 +12,7 @@ export (int) var run_speed = 250
 export (int) var jump_speed = -450
 export (int) var gravity = 1300
 export (int) var dodgeSpeed = 2500
-export (int) var chara_value = randi()%11
+export (int) var chara_value = 0
 export var dead = false
 
 var velocity = Vector2()
@@ -58,7 +58,6 @@ func get_input():
 			ani.offset.x = 0
 			ani.play("Idle")
 
-
 func attack():
 	var attack = Input.is_action_pressed("attack")
 	var spcAttack = Input.is_action_pressed("specialAttack")
@@ -102,20 +101,14 @@ func attack():
 		ani.offset.x = 0
 		ani.offset.y = 0
 		
-#under construction==================
-func _dodge():
-	var dodge = Input.is_action_pressed("dodge")
-	var left = ani.scale.x < 0
-	var right = ani.scale.x > 0
-	
-	if dodge and dodging == false:
-		dodging = true
-		ani.play("dodge")
-		if left:
-			velocity.x -= dodgeSpeed 
-		if right:
-			velocity.x += dodgeSpeed 
-#======================================
+
+func dead():
+	ani.stop()
+	ani.play("dead")
+	queue_free()
+
+func knockback():
+	velocity.y = jump_speed
 	
 func _physics_process(delta):
 	if dead == false:
@@ -135,10 +128,6 @@ func _process(delta):
 		dead = true
 		dead()
 		
-func dead():
-	ani.stop()
-	ani.play("dead")
-	queue_free()
 
 func _on_AnimatedSprite_animation_finished():
 	if ani.animation == "charge":
@@ -158,13 +147,16 @@ func _on_AnimatedSprite_animation_finished():
 		
 	if ani.animation == "dodge":
 		dodging = false
-		
-
 
 func _on_attackReset_timeout():
 	attackState = 3
 
-
 func _on_demagedArea_area_entered(area):
 	pass
 
+func _on_AttackHIT_body_entered(body):
+	knockback()
+
+
+func _on_imun_body_entered(body):
+	knockback()

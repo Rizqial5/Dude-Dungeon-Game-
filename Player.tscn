@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://Asset/TileSet/Magic-Cliffs-Environment/PNG/sea.png" type="Texture" id=1]
 [ext_resource path="res://Asset/TileSet/Magic-Cliffs-Environment/PNG/sky.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Asset/Dude/fall.png" type="Texture" id=14]
 [ext_resource path="res://Asset/Dude/teleport.png" type="Texture" id=15]
 [ext_resource path="res://Asset/GUI/PngItem_2242554.png" type="Texture" id=16]
+[ext_resource path="res://Asset/Dude/damaged.png" type="Texture" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -40,6 +41,14 @@ region = Rect2( 30, 69, 30, 23 )
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 15 )
 region = Rect2( 30, 92, 30, 23 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 17 )
+region = Rect2( 34, 0, 17, 23 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 17 )
+region = Rect2( 34, 23, 17, 23 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 10 )
@@ -224,6 +233,11 @@ animations = [ {
 "name": "dead",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 56 ), SubResource( 57 ) ],
+"loop": true,
+"name": "knock",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": false,
 "name": "at3",
@@ -290,6 +304,7 @@ extents = Vector2( 101.946, 10 )
 [node name="dUDE" type="KinematicBody2D"]
 collision_mask = 7
 script = ExtResource( 4 )
+chara_value = 4
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = -11.0315
@@ -341,7 +356,6 @@ position = Vector2( 5.15904, -4.36535 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 51 )
 animation = "Idle"
-frame = 1
 speed_scale = 2.0
 playing = true
 
