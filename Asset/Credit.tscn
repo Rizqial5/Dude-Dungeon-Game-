@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://wallpaperflare.com_wallpaper.jpg" type="Texture" id=1]
+[ext_resource path="res://Asset/Font/FontUI.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Buttons/Button.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.12549, 0.113725, 0.113725, 0.666667 )
+
+[node name="Credit" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color( 1, 0.890625, 0.890625, 1 )
+anchor_left = 0.223438
+anchor_right = 0.772656
+anchor_bottom = 1.00278
+theme = SubResource( 1 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.221727
+anchor_top = 0.00416667
+anchor_right = 0.772508
+anchor_bottom = 1.01111
+margin_top = -2.38419e-07
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]CREDITS[center]
+
+[center]Guthib.com Team Development[center]
+[center]Game progamming by[center]
+[center]Muhammad Bagus Rizqi Alvian
+Mohammad Ovi Sanjaya
+[center]
+[center]Game Design[center]
+[center]I Dewa Putu Rafi Nasrullah[center]
+[center]Assets[center]
+[center]Itch.io[center]
+[center]Sound[center]
+[center]\"Dearly Beloved\" Kingdom Hearts Soundtrack[center]
+
+
+
+"
+text = "CREDITS
+
+Guthib.com Team Development
+Game progamming by
+Muhammad Bagus Rizqi Alvian
+Mohammad Ovi Sanjaya
+
+Game Design
+I Dewa Putu Rafi Nasrullah
+Assets
+Itch.io
+Sound
+\"Dearly Beloved\" Kingdom Hearts Soundtrack
+
+
+
+"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" parent="." instance=ExtResource( 3 )]
+anchor_left = 0.814337
+anchor_top = 0.913171
+anchor_right = 0.976056
+anchor_bottom = 0.982616
+custom_fonts/font = ExtResource( 2 )
+text = "Main Menu"
+reference_path = "res://Asset/Menu.tscn"

@@ -38,7 +38,7 @@ anchor_bottom = 1.0
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": true,
-"_edit_vertical_guides_": [ 536.364 ]
+"_edit_vertical_guides_": [ 536.364, 513.367 ]
 }
 
 [node name="Logo" type="TextureRect" parent="."]
@@ -86,10 +86,10 @@ custom_fonts/font = ExtResource( 2 )
 text = "STORY"
 
 [node name="Exit" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.419034
-anchor_top = 0.792764
-anchor_right = 0.580753
-anchor_bottom = 0.862208
+anchor_left = 0.41772
+anchor_top = 0.868678
+anchor_right = 0.579439
+anchor_bottom = 0.938122
 margin_left = -22.0
 margin_top = -4.0
 margin_right = -22.0
@@ -124,4 +124,14 @@ current = true
 position = Vector2( 28.885, 509.927 )
 scale = Vector2( 5.75952, 5.75952 )
 frames = SubResource( 5 )
+frame = 3
 playing = true
+
+[node name="Credits" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.400904
+anchor_top = 0.783369
+anchor_right = 0.562623
+anchor_bottom = 0.852813
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS"
+reference_path = "res://Asset/Credit.tscn"
