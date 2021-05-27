@@ -83,7 +83,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button" parent="." instance=ExtResource( 3 )]
+[node name="Main Menu" parent="." instance=ExtResource( 3 )]
 anchor_left = 0.814337
 anchor_top = 0.913171
 anchor_right = 0.976056

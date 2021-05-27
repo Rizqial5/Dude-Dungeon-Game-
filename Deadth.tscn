@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Asset/Font/FontUI.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Buttons/Button.tscn" type="PackedScene" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.8 )
+
+[node name="Deadth" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1.0
+margin_bottom = -2.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.00085034
+anchor_top = 0.442771
+anchor_right = 0.998299
+anchor_bottom = 0.551205
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Try Again[center]
+"
+text = "Try Again
+"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Try" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.352891
+anchor_top = 0.540663
+anchor_right = 0.493197
+anchor_bottom = 0.61747
+rect_pivot_offset = Vector2( -391.212, 46.1111 )
+focus_neighbour_right = NodePath("../Main Menu")
+custom_fonts/font = ExtResource( 1 )
+text = "Try"
+reference_path = "res://World.tscn"
+start_focused = true
+
+[node name="Main Menu" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.510666
+anchor_top = 0.538652
+anchor_right = 0.650972
+anchor_bottom = 0.61546
+rect_pivot_offset = Vector2( -391.212, 46.1111 )
+focus_neighbour_left = NodePath("../Try")
+custom_fonts/font = ExtResource( 1 )
+text = "Main Menu"
+reference_path = "res://Asset/Menu.tscn"

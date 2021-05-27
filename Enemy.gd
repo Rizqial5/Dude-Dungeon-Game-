@@ -19,7 +19,8 @@ var is_moving_left = true
 var keep_attack = false
 var is_damaged = false
 export (int) var enemy_value = 0
-export (int) var charVal = 0
+#export (int) var charVal = 0
+onready var charVal = get_node("../../Player").chara_value
 
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
@@ -28,10 +29,12 @@ onready var anim = $AnimationPlayer
 onready var stats = $Stats
 onready var deathTimer = $Death
 onready var imunn = $imun/CollisionShape2D
+onready var attacked = $DamagedArea/Front
 
 func imun():
-	if enemy_value+charVal < 5:
+	if enemy_value+charVal <= 5:
 		imunn.disabled = false
+		attacked.disabled = true
 
 func _ready():
 	animationTree.active = true

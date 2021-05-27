@@ -7,6 +7,7 @@ onready var attkCol_Left = $attackCollusion/left
 onready var specialR = $special/specialR
 onready var specialL = $special/specialL
 onready var attackReset = $attackReset
+onready var dieScene = $Deadth
 
 export (int) var run_speed = 250
 export (int) var jump_speed = -450
@@ -105,7 +106,8 @@ func attack():
 func dead():
 	ani.stop()
 	ani.play("dead")
-	queue_free()
+	dieScene.set_visible(true)
+#	queue_free()
 
 func knockback():
 	velocity.y = jump_speed

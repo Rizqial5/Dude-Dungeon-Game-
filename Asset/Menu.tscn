@@ -72,6 +72,7 @@ focus_neighbour_bottom = NodePath("../Story")
 custom_fonts/font = ExtResource( 2 )
 text = "PLAY"
 reference_path = "res://World.tscn"
+start_focused = true
 
 [node name="Story" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.443024
@@ -83,9 +84,10 @@ margin_top = -4.0
 margin_right = -22.0
 margin_bottom = -3.99994
 focus_neighbour_top = NodePath("../Play")
-focus_neighbour_bottom = NodePath("../Exit")
+focus_neighbour_bottom = NodePath("../Credits")
 custom_fonts/font = ExtResource( 2 )
 text = "STORY"
+reference_path = "res://Story.tscn"
 
 [node name="Exit" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.443875
@@ -96,7 +98,7 @@ margin_left = -22.0
 margin_top = -4.0
 margin_right = -22.0
 margin_bottom = -4.0
-focus_neighbour_top = NodePath("../Story")
+focus_neighbour_top = NodePath("../Credits")
 focus_neighbour_bottom = NodePath("../Play")
 custom_fonts/font = ExtResource( 2 )
 text = "EXIT"
@@ -122,7 +124,7 @@ texture = ExtResource( 3 )
 position = Vector2( 14.3807, 467.672 )
 scale = Vector2( 5.36822, 5.36822 )
 frames = SubResource( 5 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Credits" parent="." instance=ExtResource( 1 )]
@@ -131,6 +133,8 @@ anchor_top = 0.75267
 anchor_right = 0.565473
 anchor_bottom = 0.814417
 margin_left = -0.0960388
+focus_neighbour_top = NodePath("../Story")
+focus_neighbour_bottom = NodePath("../Exit")
 custom_fonts/font = ExtResource( 2 )
 text = "CREDITS"
 reference_path = "res://Asset/Credit.tscn"
