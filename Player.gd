@@ -107,6 +107,7 @@ func dead():
 	ani.stop()
 	ani.play("dead")
 	dieScene.set_visible(true)
+	
 #	queue_free()
 
 func knockback():

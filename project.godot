@@ -40,7 +40,7 @@ _global_script_class_icons={
 
 config/name="Dude"
 run/main_scene="res://Asset/Menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://Asset/12.png"
 
 [autoload]
 
@@ -101,6 +101,7 @@ dodge={
 2d_physics/layer_3="Stage"
 2d_physics/layer_4=false
 2d_physics/layer_5="Btas"
+2d_physics/layer_6="teleport"
 
 [physics]
 
