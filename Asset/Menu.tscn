@@ -48,10 +48,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -147.0
-margin_top = -274.0
-margin_right = 122.0
-margin_bottom = 46.0
+margin_left = -141.007
+margin_top = -310.708
+margin_right = 127.993
+margin_bottom = 9.2915
 texture = ExtResource( 4 )
 expand = true
 __meta__ = {
@@ -59,10 +59,10 @@ __meta__ = {
 }
 
 [node name="Play" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.440476
-anchor_top = 0.628012
-anchor_right = 0.580782
-anchor_bottom = 0.688253
+anchor_left = 0.443024
+anchor_top = 0.597549
+anchor_right = 0.58333
+anchor_bottom = 0.65779
 margin_left = -22.0
 margin_top = -4.0
 margin_right = -22.0
@@ -74,10 +74,10 @@ text = "PLAY"
 reference_path = "res://World.tscn"
 
 [node name="Story" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.440476
-anchor_top = 0.709337
-anchor_right = 0.580782
-anchor_bottom = 0.769578
+anchor_left = 0.443024
+anchor_top = 0.678875
+anchor_right = 0.58333
+anchor_bottom = 0.739116
 margin_left = -22.0
 margin_top = -4.0
 margin_right = -22.0
@@ -88,10 +88,10 @@ custom_fonts/font = ExtResource( 2 )
 text = "STORY"
 
 [node name="Exit" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.441327
-anchor_top = 0.865964
-anchor_right = 0.579082
-anchor_bottom = 0.924699
+anchor_left = 0.443875
+anchor_top = 0.835501
+anchor_right = 0.58163
+anchor_bottom = 0.894236
 margin_left = -22.0
 margin_top = -4.0
 margin_right = -22.0
@@ -111,24 +111,26 @@ scroll_offset = Vector2( 1, 1 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 2, 1 )
 motion_offset = Vector2( 1, 1 )
-motion_mirroring = Vector2( 1174, 0 )
+motion_mirroring = Vector2( 1240, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 589.512, 330.437 )
-scale = Vector2( 0.612701, 0.615063 )
+position = Vector2( 624.79, 330.437 )
+scale = Vector2( 0.649449, 0.615063 )
 texture = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 14.3807, 467.672 )
 scale = Vector2( 5.36822, 5.36822 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="Credits" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.420918
-anchor_top = 0.783133
-anchor_right = 0.562925
-anchor_bottom = 0.84488
+anchor_left = 0.425249
+anchor_top = 0.75267
+anchor_right = 0.565473
+anchor_bottom = 0.814417
+margin_left = -0.0960388
 custom_fonts/font = ExtResource( 2 )
 text = "CREDITS"
 reference_path = "res://Asset/Credit.tscn"
