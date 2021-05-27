@@ -124,7 +124,7 @@ current = true
 position = Vector2( 28.885, 509.927 )
 scale = Vector2( 5.75952, 5.75952 )
 frames = SubResource( 5 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Credits" parent="." instance=ExtResource( 1 )]
