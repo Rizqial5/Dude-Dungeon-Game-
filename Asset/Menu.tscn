@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Buttons/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Asset/Font/FontUI.tres" type="DynamicFont" id=2]
+[ext_resource path="res://wallpaperflare.com_wallpaper.jpg" type="Texture" id=3]
+[ext_resource path="res://Asset/12.png" type="Texture" id=4]
+[ext_resource path="res://Asset/Music/1-01. Dearly Beloved.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Asset/Menu.gd" type="Script" id=8]
+[ext_resource path="res://Asset/Dude/run.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 23, 60, 23 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 46, 60, 23 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 69, 60, 23 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 60, 23 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": true,
+"_edit_vertical_guides_": [ 536.364 ]
+}
+
+[node name="Logo" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -195.956
+margin_top = -347.437
+margin_right = 135.044
+margin_bottom = 46.5626
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.419034
+anchor_top = 0.62419
+anchor_right = 0.580753
+anchor_bottom = 0.693634
+margin_left = -22.0
+margin_top = -4.0
+margin_right = -22.0
+margin_bottom = -4.0
+focus_neighbour_top = NodePath("../Exit")
+focus_neighbour_bottom = NodePath("../Story")
+custom_fonts/font = ExtResource( 2 )
+text = "PLAY"
+reference_path = "res://World.tscn"
+
+[node name="Story" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.419034
+anchor_top = 0.709865
+anchor_right = 0.580753
+anchor_bottom = 0.77931
+margin_left = -22.0
+margin_top = -4.0
+margin_right = -22.0
+margin_bottom = -3.99994
+focus_neighbour_top = NodePath("../Play")
+focus_neighbour_bottom = NodePath("../Exit")
+custom_fonts/font = ExtResource( 2 )
+text = "STORY"
+
+[node name="Exit" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.419034
+anchor_top = 0.792764
+anchor_right = 0.580753
+anchor_bottom = 0.862208
+margin_left = -22.0
+margin_top = -4.0
+margin_right = -22.0
+margin_bottom = -4.0
+focus_neighbour_top = NodePath("../Story")
+focus_neighbour_bottom = NodePath("../Play")
+custom_fonts/font = ExtResource( 2 )
+text = "EXIT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2( 1, 1 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 2, 1 )
+motion_offset = Vector2( 1, 1 )
+motion_mirroring = Vector2( 1400, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 727.318, 362.53 )
+scale = Vector2( 0.756249, 0.670994 )
+texture = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 639.803, 361.433 )
+current = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 28.885, 509.927 )
+scale = Vector2( 5.75952, 5.75952 )
+frames = SubResource( 5 )
+playing = true

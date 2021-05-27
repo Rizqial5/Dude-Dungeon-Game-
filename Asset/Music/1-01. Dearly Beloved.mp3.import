@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/1-01. Dearly Beloved.mp3-8f1ee1745e4592e3297d32a4ad4907f3.mp3str"
+
+[deps]
+
+source_file="res://Asset/Music/1-01. Dearly Beloved.mp3"
+dest_files=[ "res://.import/1-01. Dearly Beloved.mp3-8f1ee1745e4592e3297d32a4ad4907f3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

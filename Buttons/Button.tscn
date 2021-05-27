@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Buttons/ButtonNormal.tres" type="StyleBox" id=1]
+[ext_resource path="res://Buttons/ButtonPressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://Buttons/Press.tres" type="StyleBox" id=3]
+[ext_resource path="res://Buttons/Button.gd" type="Script" id=4]
+
+[node name="Button" type="Button"]
+anchor_left = 1.19209e-08
+anchor_right = 0.161719
+anchor_bottom = 0.0694444
+margin_right = 1.52588e-05
+margin_bottom = -3.8147e-06
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/normal = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
