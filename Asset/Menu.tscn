@@ -122,7 +122,7 @@ texture = ExtResource( 3 )
 position = Vector2( 14.3807, 467.672 )
 scale = Vector2( 5.36822, 5.36822 )
 frames = SubResource( 5 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Credits" parent="." instance=ExtResource( 1 )]
